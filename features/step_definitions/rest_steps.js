@@ -44,6 +44,10 @@ module.exports = function() {
   this.When(/^"([^"]*)" answers question (\d+) with "([^"]*)"$/, function (user, questionId, content) {
     this.result = this.application("POST", "/question/" + questionId + "/answer", {"user": user, "content": content})
   });
+  
+  this.When(/^I would like to find the questions from "([^"]*)"$/, function (user) {
+	  this.result = this.application("GET", "/question/" + user)
+  });
 
   this.Then(/^the user "([^"]*)" should be registered, with email "([^"]*)" and password "([^"]*)"$/, function (username, email, password) {
     this.assertStatus(201)

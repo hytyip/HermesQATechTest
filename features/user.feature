@@ -24,3 +24,6 @@ Feature: Registering users
     When I register a new user "1234567" with email "1234567@example.com" and password "password1"
     Then the user "1234567" should be registered, with email "1234567@example.com" and password "password1"
 	
+  Scenario: Register the same name again
+    When I register a new user "john" with email "john@example.com" and password "password1"
+    Then the user "john" should be registered, with email "john@example.com" and password "password1"
