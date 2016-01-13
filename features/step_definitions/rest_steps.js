@@ -65,6 +65,11 @@ module.exports = function() {
     expect(this.response).to.have.property("downvotes", parseInt(downvotes))
   });
   
+  this.Then(/^I should see a question with (\d+) upvote$/, function (upvotes) {
+    this.assertSuccess()
+    expect(this.response).to.have.property("upvotes", parseInt(upvotes))
+  });
+  
   this.Then(/^I should receive a Not Found error$/, function () {
     this.assertStatus(404)
   });

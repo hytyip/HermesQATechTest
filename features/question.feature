@@ -21,6 +21,14 @@ Feature: Asking Questions
     When I look up question 0
     Then I should see a question with 1 downvote
 	
+ Scenario: Add more upvotes
+    Given question 0 is "What's the answer?" with content "What exactly is the answer?" by user "john"
+	When "john" upvotes on question 0
+	When "Tom" upvotes on question 0
+	Then question 0 should have an upvote from "Tom"
+    When I look up question 0
+    Then I should see a question with 2 upvote
+	
   Scenario: Voting on wrong question id's question
     When "john" upvotes on question 1
     Then I should receive an Internal error
