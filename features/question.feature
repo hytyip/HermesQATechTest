@@ -20,3 +20,9 @@ Feature: Asking Questions
     And question 0 has a downvote from "john"
     When I look up question 0
     Then I should see a question with 1 downvote
+	
+  Scenario: Voting on wrong question id's question
+    When "john" upvotes on question 1
+    Then I should receive an Internal error
+	
+ 

@@ -68,4 +68,8 @@ module.exports = function() {
   this.Then(/^I should receive a Not Found error$/, function () {
     this.assertStatus(404)
   });
+  
+  this.Then(/^I should receive an Internal error$/, function () {
+	  this.assertStatus(500)
+  });
 }
